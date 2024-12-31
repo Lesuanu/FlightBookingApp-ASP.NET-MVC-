@@ -26,9 +26,7 @@ namespace FlightBookingApp.Controllers
         public async Task<IActionResult> BookFlight(FlightBooking booking)
         {
             await _flightBookingRepository.AddFlight(booking);
-            return RedirectToAction(nameof(ListFlights));
-
-           
+            return RedirectToAction(nameof(ListFlights));   
         }
 
         [HttpGet]
