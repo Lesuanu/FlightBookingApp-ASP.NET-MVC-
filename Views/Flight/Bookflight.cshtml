@@ -1,0 +1,65 @@
+﻿@model FlightBookingApp.Models.FlightBooking
+
+@{
+    ViewData["Title"] = "BookFlight";
+}
+
+<h1>Book a Flight</h1>
+
+
+<hr />
+<div class="row">
+    <div class="col-md-12">
+        <form method="post" >
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="mb-3">
+                <label asp-for="Flight_Name" class="control-label"></label>
+                <select asp-for="Flight_Name" class="form-control" asp-items="Html.GetEnumSelectList<FlightName>()">
+                    <option selected="selected" value="">please select</option>
+                </select>
+                <span asp-validation-for="Flight_Name" class="text-danger"></span>
+            </div>
+
+            <div class="mb-3">
+                <label asp-for="Flight_Class" class="control-label"></label>
+                <select asp-for="Flight_Class" class="form-control" asp-items="Html.GetEnumSelectList<FlightClass>()">
+                    <option selected="selected" value="">please select</option>
+                </select>
+                <span asp-validation-for="Flight_Class" class="text-danger"></span>
+            </div>
+
+            <div class="mb-3">
+                <label asp-for="Destination" class="control-label"></label>
+                <input asp-for="Destination" class="form-control" />
+                <span asp-validation-for="Destination" class="text-danger"></span>
+            </div>
+
+            <div class="mb-3">
+                <label asp-for="Date" class="control-label"></label>
+                <input asp-for="Date" class="form-control" />
+                <span asp-validation-for="Date" class="text-danger"></span>
+            </div>
+
+            <div class="mb-3">
+                <label asp-for="Arrival_Time" class="control-label"></label>
+                <input asp-for="Arrival_Time" class="form-control" />
+                <span asp-validation-for="Arrival_Time" class="text-danger"></span>
+            </div>
+
+            <div class="mb-3">
+                <label asp-for="Departure_Time" class="control-label"></label>
+                <input asp-for="Departure_Time" class="form-control" />
+                <span asp-validation-for="Departure_Time" class="text-danger"></span>
+            </div>
+
+            <div class="mb-3">
+                <button type="submit" class="btn btn-primary">Book Flight</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<div class="row col-md-12">
+    <a asp-action="ListFlights">See List of Flights</a>
+</div>
+

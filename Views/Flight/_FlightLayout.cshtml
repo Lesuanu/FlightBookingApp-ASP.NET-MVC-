@@ -1,0 +1,37 @@
+﻿@using Microsoft.AspNetCore.Identity
+@using FlightBookingApp.Models
+@inject SignInManager<FlightIdentityUser> SignInManager
+@inject UserManager<FlightIdentityUser> UserManager
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="header">
+    <div class="header-logo" asp-area="" asp-controller="Home" asp-action="Index">
+        Air United
+    </div>
+
+    <div class="header-item">
+        <div class="header-items-home" style="margin-right: 55px"><a asp-area="" asp-controller="Home" asp-action="Index">Home</a></div>
+        <div class="header-items-services" style="margin-right: 55px"><a asp-area="" asp-controller="Home" asp-action="Services">Services</a></div>
+        <div class="header-items-contact" style="margin-right: 55px"><a asp-area="" asp-controller="Home" asp-action="Contact">Contact-Us</a></div>
+        <div class="header-items-about" style="margin-right: 55px"><a asp-area="" asp-controller="Home" asp-action="About">About-Us</a></div>
+        <div class="header-items-faq" style="margin-right: 55px"><a asp-area="" asp-controller="Home" asp-action="FAQs">FAQs</a></div>
+
+    </div>
+    @if (SignInManager.IsSignedIn(User))
+    {
+        <div class="login-details">
+            <div class="nav-item">
+                <a id="manage" class="nav-link" asp-area="Identity" asp-page="/Account/Manage/Index" title="Manage">Hello @UserManager.GetUserName(User)!</a>
+            </div>
+            <div class="nav-item">
+                <form id="logoutForm" class="form-inline" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })">
+                    <button id="logout" type="submit" class="nav-link btn btn-link border-0">Logout</button>
+                </form>
+            </div>
+        </div>
+    }
+  
+
+</div>
+ @RenderBody()

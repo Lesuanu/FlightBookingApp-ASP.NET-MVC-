@@ -1,0 +1,9 @@
+﻿@{
+    Layout = "_FlightLayout.cshtml";
+}
+
+@model FlightBookingApp.Models.FlightBooking
+
+<div>Flight with Id <h1 class="btn btn-success">@Model.Id</h1> was deleted successfully</div>
+
+<a asp-action="ListFlights">View All Flights</a>

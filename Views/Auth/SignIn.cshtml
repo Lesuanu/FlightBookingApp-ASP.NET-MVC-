@@ -1,0 +1,23 @@
+﻿@model FlightBookingApp.Models.SignInModel
+
+@{
+    ViewData["Title"] = "SignIn";
+}
+
+<div>
+    <label asp-for="UserName"></label>
+    <div>
+        <input asp-for="UserName" />
+        <span asp-validation-for="UserName" class="text-danger"></span>
+    </div>
+</div>
+
+<div>
+    <label asp-for="Password"></label>
+    <div>
+        <input asp-for="Password" />
+        <span asp-validation-for="Password" class="text-danger"></span>
+    </div>
+</div>
+
+<button type="submit" class="btn btn-primary">Sign In</button>

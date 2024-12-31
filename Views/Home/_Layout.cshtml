@@ -1,0 +1,62 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - FlightBookingApp</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/FlightBookingApp.styles.css" asp-append-version="true" />
+</head>
+<body>
+    <div class="header">
+        <div class="header-logo" asp-area="" asp-controller="Home" asp-action="Index">
+            Air United
+        </div>
+
+     <div class="header-item">
+            <div class="header-items-home" style="margin-right: 55px"><a asp-area="" asp-controller="Home" asp-action="Index">Home</a></div>
+            <div class="header-items-services" style="margin-right: 55px"><a asp-area="" asp-controller="Home" asp-action="Services">Services</a></div>
+            <div class="header-items-contact" style="margin-right: 55px"><a asp-area="" asp-controller="Home" asp-action="Contact">Contact-Us</a></div>
+            <div class="header-items-about" style="margin-right: 55px"><a asp-area="" asp-controller="Home" asp-action="About">About-Us</a></div>
+            <div class="header-items-faq" style="margin-right: 55px"><a asp-area="" asp-controller="Home" asp-action="FAQs">FAQs</a></div>
+
+     </div>
+
+        @inject SignInManager<FlightIdentityUser> SignInManager
+        @inject UserManager<FlightIdentityUser> UserManager
+        @if (!SignInManager.IsSignedIn(User))
+        {
+            <div class="header-login">
+                <div style="margin-right: 0px"><a href="~/Identity/Account/Register">Register</a></div>
+               
+            </div>
+        }
+        else
+        {
+            <div class="header-login">
+                <partial name="_LoginPartial.cshtml" />
+            </div>
+        }
+        
+    </div>
+   <div class="header-image">
+       <div class="row col-5">
+            @RenderBody()
+           
+       </div>
+   </div>
+
+
+    <div>
+       
+    </div>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>
+
+
+
