@@ -7,7 +7,7 @@
 }
 <div class="header">
     <div class="header-logo" asp-area="" asp-controller="Home" asp-action="Index">
-        Air United
+        <p style="margin-top:10px;font-size: 20px">Air United</p>
     </div>
 
     <div class="header-item">
@@ -35,3 +35,8 @@
 
 </div>
  @RenderBody()
+ <style>
+     .header-item a:link{
+         text-decoration: none;
+     }
+ </style>

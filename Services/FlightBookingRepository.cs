@@ -48,7 +48,6 @@ namespace FlightBookingApp.Services
             return await _context.Flights.ToListAsync();
         }
 
-        //new stuff
         public async Task<FlightBooking> GetFlightById(int id)
         {
             var result = await _context.Flights.FirstOrDefaultAsync(x => x.Id == id);

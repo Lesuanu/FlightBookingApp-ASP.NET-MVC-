@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace FlightBookingApp.Controllers
 {
-   
+    [Authorize]
     public class FlightController : Controller
     {
         private readonly IFlightBookingRepository _flightBookingRepository;

@@ -7,12 +7,17 @@
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/FlightBookingApp.styles.css" asp-append-version="true" />
+    <link rel="stylesheet" media="screen and (min-width: 480px)" href="media.css" />
 </head>
 <body>
     <div class="header">
-        <div class="header-logo" asp-area="" asp-controller="Home" asp-action="Index">
-            Air United
+        <div class="header-logo" asp-controller="Home" asp-action="Index">
+            <p style="margin-top:10px;font-size: 20px">Air United</p>
+            <div class="header-logo-image" asp-controller="Home" asp-action="Index">
+                
+            </div>
         </div>
+        
 
      <div class="header-item">
             <div class="header-items-home" style="margin-right: 55px"><a asp-area="" asp-controller="Home" asp-action="Index">Home</a></div>
@@ -46,11 +51,11 @@
            
        </div>
    </div>
+    <div class="footer-item">
+        <div>Copyright &copy Air United 2025 All Rights Reserved.</div>
 
-
-    <div>
-       
     </div>
+
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
